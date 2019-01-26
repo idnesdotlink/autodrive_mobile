@@ -44,6 +44,7 @@ matrix:
         - flutter doctor --android-licenses
         - flutter channel beta
         - flutter upgrade
+        - flutter doctor --android-licenses
         - flutter doctor
 cache:
   directories:
