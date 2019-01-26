@@ -7,6 +7,17 @@ matrix:
         - 'android-sdk-preview-license-.+'
         - 'android-sdk-license-.+'
         - 'google-gdk-license-.+'
+      android:
+        components:
+          - tools
+          - platform-tools
+          - build-tools-25.0.3
+          - android-25
+          - sys-img-armeabi-v7a-google_apis-25
+          - extra-android-m2repository
+          - extra-google-m2repository
+          - extra-google-android-support
+      jdk: oraclejdk8
       sudo: false
       addons:
         apt:
@@ -14,61 +25,24 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - oracle-java8-installer
-            - oracle-java8-set-default
-            - sshpass
+            - libglu1-mesa
+            - libglu1-mesa-dev
             - unzip
             - xz-utils
       before_script:
-        # android-sdk
-        - if test ! -e $SDKTOOLS_TMP ; then wget $SDK_TOOLS_URL -P $SDKTOOLS_TMP ; fi
-        - unzip -qq -n $SDKTOOLS_TMP -d $HOME/android-sdk
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;27.0.3' > /dev/null
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-27' > /dev/null
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
-
-        # gradle
-        - if test ! -e $GRADLE_TMP ; then wget $GRADLE_URL -P $GRADLE_TMP ; fi
-        - unzip -o -qq $GRADLE_TMP -d $HOME/gradle-4.1
-        - export GRADLE_HOME=$HOME/gradle-4.1
-        - export PATH=$GRADLE_HOME/bin:$PATH
-
-        #flutter
-        - if test ! -e $FLUTTER_TMP ; then wget $FLUTTER_URL $FLUTTER_TMP ; fi
-        - mkdir -p $HOME/flutter && tar xf $FLUTTER_TMP $HOME/flutter
-        - export PATH=$PATH:$HOME/flutter/bin
-
+        # wget resource and keep in cache
+        - wget $GRADLE_URL -P $DOWNLOAD_PATH
+        - wget $FLUTTER_URL -P $DOWNLOAD_PATH
       script:
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager --licenses
-        - flutter config --no-analytics
-        - flutter channel beta
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager --licenses
-        - flutter upgrade
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager --licenses
-        - flutter doctor
-  before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -f  $HOME/.gradle/caches/transforms-1/transforms-1.lock
-  - rm -rf $HOME/.gradle/caches/3.5/fileHashes/
-  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
-  cache:
-    directories:
-      - $HOME/tmp
-      - $HOME/flutter
-      - $HOME/android-sdk
-      - $HOME/.pub-cache
-      - $HOME/gradle-4.1
-      - $HOME/.gradle/caches
-      - $HOME/.gradle/wrapper
-  env:
-    global:
-    - ANDROID_HOME=$HOME/android-sdk
-    - JAVA_HOME=/usr/lib/jvm/java-8-oracle
-    - GRADLE_URL="https://services.gradle.org/distributions/gradle-4.1-all.zip"
-    - FLUTTER_URL="https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz"
-    - SDK_TOOLS_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip"
-    - FLUTTER_TMP="$HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz"
-    - GRADLE_TMP="$HOME/tmp/gradle-4.1-all.zip"
-    - SDKTOOLS_TMP="$HOME/tmp/sdk-tools.zip"
+        - ls $DOWNLOAD_PATH
+cache:
+  directories:
+    - $HOME/.download
+    - $HOME/.pub-cache
+env:
+  global:
+    - GRADLE_URL=https://services.gradle.org/distributions/gradle-4.1-all.zip
+    - FLUTTER_URL=https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz
+    - GRADLE_HOME=$HOME/gradle-4.1
+    - FLUTTER_PATH=$HOME/flutter
+    - DOWNLOAD_PATH=$HOME/.download
