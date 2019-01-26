@@ -7,7 +7,6 @@ matrix:
         - 'android-sdk-preview-license-.+'
         - 'android-sdk-license-.+'
         - 'google-gdk-license-.+'
-      jdk: oraclejdk8
       sudo: false
       addons:
         apt:
@@ -15,31 +14,32 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - libstdc++6
-            - fonts-droid
-            - libglu1-mesa
-            - libglu1-mesa-dev
+            - oracle-java8-installer
+            - oracle-java8-set-default
+            - sshpass
             - unzip
             - xz-utils
       before_script:
-        - if test ! -e $HOME/android-sdk-dl/sdk-tools.zip ; then curl https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip > $HOME/android-sdk-dl/sdk-tools.zip ; fi
-        - unzip -qq -n $HOME/android-sdk-dl/sdk-tools.zip -d $HOME/android-sdk
-        - echo yes | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
-        - echo yes | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
-        - echo yes | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;27.0.3' > /dev/null
-        - echo yes | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-27' > /dev/null
-        - echo yes | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
+        # android-sdk
+        - if test ! -e $HOME/tmp/sdk-tools.zip; then curl https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip > $HOME/android-sdk-dl/sdk-tools.zip; fi
+        - unzip -qq -n $HOME/tmp/sdk-tools.zip -d $HOME/android-sdk
+        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
+        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
+        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;27.0.3' > /dev/null
+        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-27' > /dev/null
+        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
 
-        - wget https://services.gradle.org/distributions/gradle-4.1-all.zip
-        - unzip -o -qq gradle-4.1-all.zip
-        - export GRADLE_HOME=$PWD/gradle-4.1
+        # gradle
+        - if test ! -e $HOME/tmp/gradle-4.1-all.zip; then curl https://services.gradle.org/distributions/gradle-4.1-all.zip > $HOME/tmp/gradle-4.1-all.zip; fi
+        - unzip -o -qq $HOME/tmp/gradle-4.1-all.zip -d $HOME/gradle-4.1
+        - export GRADLE_HOME=$HOME/gradle-4.1
         - export PATH=$GRADLE_HOME/bin:$PATH
-        - mkdir -p flutter
-        - cd flutter
-        - wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz
-        - tar xf flutter_linux_v1.0.0-stable.tar.xz
-        - export PATH="$PATH:`pwd`/flutter/bin"
-        - cd ..
+
+        #flutter
+        - if test ! -e $HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz; then curl https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz > $HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz; fi
+        - mkdir -p $HOME/flutter && tar xf $HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz $HOME/flutter
+        - export PATH=$PATH:$HOME/flutter/bin
+
       script:
         - echo y | $HOME/android-sdk/tools/bin/sdkmanager --licenses
         - flutter config --no-analytics
@@ -48,12 +48,20 @@ matrix:
         - flutter upgrade
         - echo y | $HOME/android-sdk/tools/bin/sdkmanager --licenses
         - flutter doctor
+before_cache:
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -f  $HOME/.gradle/caches/transforms-1/transforms-1.lock
+- rm -rf $HOME/.gradle/caches/3.5/fileHashes/
+- rm -rf $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/android-sdk-dl
+    - $HOME/tmp
+    - $HOME/flutter
     - $HOME/android-sdk
     - $HOME/.pub-cache
-    - $PWD/flutter
-    - $PWD/gradle-4.1
+    - $HOME/gradle-4.1
+    - $HOME/.gradle/caches
+    - $HOME/.gradle/wrapper
 env:
   - ANDROID_HOME=$HOME/android-sdk
+  - JAVA_HOME=/usr/lib/jvm/java-8-oracle
