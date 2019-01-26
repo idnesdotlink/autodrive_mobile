@@ -21,8 +21,8 @@ matrix:
             - xz-utils
       before_script:
         # android-sdk
-        - if test ! -e $HOME/tmp/sdk-tools.zip; then curl https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip > $HOME/tmp/sdk-tools.zip; fi
-        - unzip -qq -n $HOME/tmp/sdk-tools.zip -d $HOME/android-sdk
+        - if test ! -e $SDKTOOLS_TMP ; then wget $SDK_TOOLS_URL -P $SDKTOOLS_TMP ; fi
+        - unzip -qq -n $SDKTOOLS_TMP -d $HOME/android-sdk
         - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
         - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
         - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;27.0.3' > /dev/null
@@ -30,14 +30,14 @@ matrix:
         - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
 
         # gradle
-        - if test ! -e $HOME/tmp/gradle-4.1-all.zip; then curl https://services.gradle.org/distributions/gradle-4.1-all.zip > $HOME/tmp/gradle-4.1-all.zip; fi
-        - unzip -o -qq $HOME/tmp/gradle-4.1-all.zip -d $HOME/gradle-4.1
+        - if test ! -e $GRADLE_TMP ; then wget $GRADLE_URL -P $GRADLE_TMP ; fi
+        - unzip -o -qq $GRADLE_TMP -d $HOME/gradle-4.1
         - export GRADLE_HOME=$HOME/gradle-4.1
         - export PATH=$GRADLE_HOME/bin:$PATH
 
         #flutter
-        - if test ! -e $HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz; then curl https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz > $HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz; fi
-        - mkdir -p $HOME/flutter && tar xf $HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz $HOME/flutter
+        - if test ! -e $FLUTTER_TMP ; then wget $FLUTTER_URL $FLUTTER_TMP ; fi
+        - mkdir -p $HOME/flutter && tar xf $FLUTTER_TMP $HOME/flutter
         - export PATH=$PATH:$HOME/flutter/bin
 
       script:
@@ -65,3 +65,9 @@ cache:
 env:
   - ANDROID_HOME=$HOME/android-sdk
   - JAVA_HOME=/usr/lib/jvm/java-8-oracle
+  - GRADLE_URL=https://services.gradle.org/distributions/gradle-4.1-all.zip
+  - FLUTTER_URL=https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz
+  - SDK_TOOLS_URL=https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+  - FLUTTER_TMP=$HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz
+  - GRADLE_TMP=$HOME/tmp/gradle-4.1-all.zip
+  - SDKTOOLS_TMP=$HOME/tmp/sdk-tools.zip
