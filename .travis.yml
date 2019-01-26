@@ -42,7 +42,11 @@ matrix:
         - export PATH="$PATH:`pwd`/flutter/bin"
         - cd ..
       script:
+        - flutter doctor --android-licenses -y
+        - flutter channel beta
+        - flutter upgrade
         - flutter doctor
 cache:
   directories:
     - $HOME/.pub-cache
+    - $PWD/flutter
