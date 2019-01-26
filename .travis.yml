@@ -65,9 +65,9 @@ cache:
 env:
   - ANDROID_HOME=$HOME/android-sdk
   - JAVA_HOME=/usr/lib/jvm/java-8-oracle
-  - GRADLE_URL=https://services.gradle.org/distributions/gradle-4.1-all.zip
-  - FLUTTER_URL=https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz
-  - SDK_TOOLS_URL=https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
-  - FLUTTER_TMP=$HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz
-  - GRADLE_TMP=$HOME/tmp/gradle-4.1-all.zip
-  - SDKTOOLS_TMP=$HOME/tmp/sdk-tools.zip
+  - GRADLE_URL="https://services.gradle.org/distributions/gradle-4.1-all.zip"
+  - FLUTTER_URL="https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz"
+  - SDK_TOOLS_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip"
+  - FLUTTER_TMP="$HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz"
+  - GRADLE_TMP="$HOME/tmp/gradle-4.1-all.zip"
+  - SDKTOOLS_TMP="$HOME/tmp/sdk-tools.zip"
