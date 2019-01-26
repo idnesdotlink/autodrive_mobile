@@ -33,16 +33,16 @@ matrix:
             - unzip
             - xz-utils
       before_script:
-        # - wget https://services.gradle.org/distributions/gradle-4.1-all.zip
-        # - unzip -o -qq gradle-4.1-all.zip
+        - wget https://services.gradle.org/distributions/gradle-4.1-all.zip
+        - unzip -o -qq gradle-4.1-all.zip
         - export GRADLE_HOME=$PWD/gradle-4.1
         - export PATH=$GRADLE_HOME/bin:$PATH
-        # - mkdir -p flutter
-        # - cd flutter
-        # - wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz
-        # - tar xf flutter_linux_v1.0.0-stable.tar.xz
+        - mkdir -p flutter
+        - cd flutter
+        - wget https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz
+        - tar xf flutter_linux_v1.0.0-stable.tar.xz
         - export PATH="$PATH:`pwd`/flutter/bin"
-        # - cd ..
+        - cd ..
       script:
         - flutter doctor --android-licenses -y
         - flutter channel beta
