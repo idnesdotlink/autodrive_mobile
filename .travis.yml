@@ -41,10 +41,11 @@ matrix:
         - export PATH="$PATH:`pwd`/flutter/bin"
         - cd ..
       script:
-        - flutter doctor --android-licenses
+        - flutter config --no-analytics
+        - echo y | flutter doctor --android-licenses
         - flutter channel beta
         - flutter upgrade
-        - flutter doctor --android-licenses
+        - echo y | flutter doctor --android-licenses
         - flutter doctor
 cache:
   directories:
