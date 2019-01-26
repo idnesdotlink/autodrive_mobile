@@ -48,26 +48,27 @@ matrix:
         - flutter upgrade
         - echo y | $HOME/android-sdk/tools/bin/sdkmanager --licenses
         - flutter doctor
-before_cache:
-- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-- rm -f  $HOME/.gradle/caches/transforms-1/transforms-1.lock
-- rm -rf $HOME/.gradle/caches/3.5/fileHashes/
-- rm -rf $HOME/.gradle/caches/*/plugin-resolution/
-cache:
-  directories:
-    - $HOME/tmp
-    - $HOME/flutter
-    - $HOME/android-sdk
-    - $HOME/.pub-cache
-    - $HOME/gradle-4.1
-    - $HOME/.gradle/caches
-    - $HOME/.gradle/wrapper
-env:
-  - ANDROID_HOME=$HOME/android-sdk
-  - JAVA_HOME=/usr/lib/jvm/java-8-oracle
-  - GRADLE_URL="https://services.gradle.org/distributions/gradle-4.1-all.zip"
-  - FLUTTER_URL="https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz"
-  - SDK_TOOLS_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip"
-  - FLUTTER_TMP="$HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz"
-  - GRADLE_TMP="$HOME/tmp/gradle-4.1-all.zip"
-  - SDKTOOLS_TMP="$HOME/tmp/sdk-tools.zip"
+  before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f  $HOME/.gradle/caches/transforms-1/transforms-1.lock
+  - rm -rf $HOME/.gradle/caches/3.5/fileHashes/
+  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+  cache:
+    directories:
+      - $HOME/tmp
+      - $HOME/flutter
+      - $HOME/android-sdk
+      - $HOME/.pub-cache
+      - $HOME/gradle-4.1
+      - $HOME/.gradle/caches
+      - $HOME/.gradle/wrapper
+  env:
+    global:
+    - ANDROID_HOME=$HOME/android-sdk
+    - JAVA_HOME=/usr/lib/jvm/java-8-oracle
+    - GRADLE_URL="https://services.gradle.org/distributions/gradle-4.1-all.zip"
+    - FLUTTER_URL="https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.0.0-stable.tar.xz"
+    - SDK_TOOLS_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip"
+    - FLUTTER_TMP="$HOME/tmp/flutter_linux_v1.0.0-stable.tar.xz"
+    - GRADLE_TMP="$HOME/tmp/gradle-4.1-all.zip"
+    - SDKTOOLS_TMP="$HOME/tmp/sdk-tools.zip"
