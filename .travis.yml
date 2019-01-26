@@ -41,7 +41,7 @@ matrix:
         - export PATH="$PATH:`pwd`/flutter/bin"
         - cd ..
       script:
-        - flutter doctor --android-licenses -y
+        - flutter doctor --android-licenses
         - flutter channel beta
         - flutter upgrade
         - flutter doctor
