@@ -24,11 +24,11 @@ matrix:
       before_script:
         - if test ! -e $HOME/android-sdk-dl/sdk-tools.zip ; then curl https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip > $HOME/android-sdk-dl/sdk-tools.zip ; fi
         - unzip -qq -n $HOME/android-sdk-dl/sdk-tools.zip -d $HOME/android-sdk
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;27.0.3' > /dev/null
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-27' > /dev/null
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
+        - echo yes | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
+        - echo yes | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
+        - echo yes | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;27.0.3' > /dev/null
+        - echo yes | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-27' > /dev/null
+        - echo yes | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
 
         - wget https://services.gradle.org/distributions/gradle-4.1-all.zip
         - unzip -o -qq gradle-4.1-all.zip
@@ -41,11 +41,10 @@ matrix:
         - export PATH="$PATH:`pwd`/flutter/bin"
         - cd ..
       script:
+        - echo yes | sdkmanager --licenses
         - flutter config --no-analytics
-        - echo y | flutter doctor --android-licenses
         - flutter channel beta
         - flutter upgrade
-        - echo y | flutter doctor --android-licenses
         - flutter doctor
 cache:
   directories:
