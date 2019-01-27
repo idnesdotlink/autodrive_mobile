@@ -64,7 +64,7 @@ env:
 before_deploy:
   - git config --local user.name idnesdotlink
   - git config --local user.email 16096613+idnesdotlink@users.noreply.github.com
-  - export TRAVIS_TAG=${TRAVIS_TAG:$(git log --format=%h -1)}
+  - export TRAVIS_TAG=${buildTRAVIS_TAG:-build.$(git log --format=%h -1)}
 deploy:
   provider: releases
   overwrite: true
