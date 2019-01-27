@@ -34,8 +34,11 @@ matrix:
         - echo y | sdkmanager 'extras;google;m2repository' > /dev/null
       script:
         - gradle -v
-        - fluttter doctor --android-licenses
-        - fluttter doctor -v
+        - sdkmanager --licenses
+        - flutter doctor --android-licenses
+        - flutter doctor -v
+        - flutter precache
+        - flutter build -v build apk
         # - ls $DOWNLOAD_PATH
         # - ls $ANDROID_HOME
         # - ls $FLUTTER_PATH
