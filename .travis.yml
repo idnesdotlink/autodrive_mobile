@@ -38,7 +38,7 @@ matrix:
         - echo -y | flutter doctor -v > /dev/null
         - flutter update-packages
         - flutter precache
-        - flutter build -v build apk
+        - flutter -v build apk
         # - ls $DOWNLOAD_PATH
         # - ls $ANDROID_HOME
         # - ls $FLUTTER_PATH
