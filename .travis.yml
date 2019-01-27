@@ -25,7 +25,7 @@ matrix:
         - unzip -qq $DOWNLOAD_PATH/sdk-tools.zip -d $ANDROID_HOME
         - unzip -qq $DOWNLOAD_PATH/gradle-4.10-all.zip -d $HOME
         - git clone -b dev $FLUTTER_GIT $FLUTTER_PATH
-        - export PATH="$PATH:$GRADLE_HOME/bin:$ANDROID_HOME/tools/bin:$HOME/flutter/bin"
+        - export PATH="$GRADLE_HOME/bin:$PATH:$GRADLE_HOME/bin:$ANDROID_HOME/tools/bin:$HOME/flutter/bin"
         - echo y | sdkmanager 'tools' > /dev/null
         - echo y | sdkmanager 'platform-tools' > /dev/null
         - echo y | sdkmanager 'build-tools;28.0.3' > /dev/null
@@ -38,8 +38,10 @@ matrix:
         - echo $PATH
         - ls $GRADLE_HOME
         - gradle -v
+        - $GRADLE_HOME/bin/gradle -v
 cache:
   directories:
+    - $HOME/.android
     - $HOME/.download
     - $HOME/.pub-cache
     - $HOME/.gradle/caches
