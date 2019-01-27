@@ -3,20 +3,6 @@ matrix:
     - os: linux
       dist: xenial
       language: android
-      licenses:
-        - 'android-sdk-preview-license-.+'
-        - 'android-sdk-license-.+'
-        - 'google-gdk-license-.+'
-      android:
-        components:
-          - tools
-          - platform-tools
-          - build-tools-25.0.3
-          - android-25
-          - sys-img-armeabi-v7a-google_apis-25
-          - extra-android-m2repository
-          - extra-google-m2repository
-          - extra-google-android-support
       sudo: false
       addons:
         apt:
@@ -37,18 +23,25 @@ matrix:
         - source "$HOME/.sdkman/bin/sdkman-init.sh"
         - echo sdkman_auto_answer=true > ~/.sdkman/etc/config
         - source "/home/travis/.sdkman/bin/sdkman-init.sh"
-        - sdk install gradle 4.1 $GRADLE_HOME
+        - sdk install gradle 4.1
+        - sdk default gradle 4.1
         - mkdir -p $HOME/.download
         - if test ! -e $DOWNLOAD_PATH/sdk-tools.zip ; then wget $ANDROID_SDK_URL -P $DOWNLOAD_PATH && mv $DOWNLOAD_PATH/sdk-tools*.zip $DOWNLOAD_PATH/sdk-tools.zip ; fi
         - unzip -qq $DOWNLOAD_PATH/sdk-tools.zip -d $ANDROID_HOME
         - git clone -b dev $FLUTTER_GIT $FLUTTER_PATH
-        - export PATH="$ANDROID_HOME/tools/bin:$HOME/flutter/bin:$PATH"
+        - export PATH="$PATH:$ANDROID_HOME/tools/bin:$HOME/flutter/bin"
+        - echo y | sdkmanager 'tools' > /dev/null
+        - echo y | sdkmanager 'platform-tools' > /dev/null
+        - echo y | sdkmanager 'build-tools;28.0.3' > /dev/null
+        - echo y | sdkmanager 'platforms;android-27' > /dev/null
+        - echo y | sdkmanager 'extras;google;m2repository' > /dev/null
       script:
         - ls $DOWNLOAD_PATH
         - ls $ANDROID_HOME
         - ls $FLUTTER_PATH
-        - ls $GRADLE_HOME
         - echo $PATH
+        - gradle -v
+        - flutter -v
 cache:
   directories:
     - $HOME/.download
@@ -61,6 +54,5 @@ env:
     - FLUTTER_GIT=https://github.com/flutter/flutter.git
     - JAVA_HOME=/usr/lib/jvm/java-8-oracle
     - FLUTTER_PATH=$HOME/flutter
-    - GRADLE_HOME=$HOME/gradle-4.1
     - ANDROID_HOME=$HOME/android-sdk
     - DOWNLOAD_PATH=$HOME/.download
