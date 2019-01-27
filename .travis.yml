@@ -40,12 +40,13 @@ matrix:
         - ls $ANDROID_HOME
         - ls $FLUTTER_PATH
         - echo $PATH
+        - ls $GRADLE_HOME
         - gradle -v
-        - flutter -v
 cache:
   directories:
     - $HOME/.download
     - $HOME/.pub-cache
+    # - $HOME/.sdkman
     # - $HOME/.gradle/caches
     # - $HOME/.gradle/wrapper
 env:
@@ -56,3 +57,4 @@ env:
     - FLUTTER_PATH=$HOME/flutter
     - ANDROID_HOME=$HOME/android-sdk
     - DOWNLOAD_PATH=$HOME/.download
+    - GRADLE_HOME=$HOME/.sdkman/candidates/gradle/current/bin/gradle
