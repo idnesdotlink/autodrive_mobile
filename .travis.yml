@@ -26,19 +26,23 @@ matrix:
         - unzip -qq $DOWNLOAD_PATH/gradle-4.10-all.zip -d $HOME
         - git clone -b dev $FLUTTER_GIT $FLUTTER_PATH
         - export PATH="$GRADLE_HOME/bin:$PATH:$GRADLE_HOME/bin:$ANDROID_HOME/tools/bin:$HOME/flutter/bin"
+        - if test ! -e $HOME/.android/repositories.cfg ; then touch $HOME/.android/repositories.cfg ; fi
         - echo y | sdkmanager 'tools' > /dev/null
         - echo y | sdkmanager 'platform-tools' > /dev/null
         - echo y | sdkmanager 'build-tools;28.0.3' > /dev/null
         - echo y | sdkmanager 'platforms;android-27' > /dev/null
         - echo y | sdkmanager 'extras;google;m2repository' > /dev/null
       script:
-        - ls $DOWNLOAD_PATH
-        - ls $ANDROID_HOME
-        - ls $FLUTTER_PATH
-        - echo $PATH
-        - ls $GRADLE_HOME
         - gradle -v
-        - $GRADLE_HOME/bin/gradle -v
+        - fluttter doctor --android-licenses
+        - fluttter doctor -v
+        # - ls $DOWNLOAD_PATH
+        # - ls $ANDROID_HOME
+        # - ls $FLUTTER_PATH
+        # - echo $PATH
+        # - ls $GRADLE_HOME
+        # - gradle -v
+        # - $GRADLE_HOME/bin/gradle -v
 cache:
   directories:
     - $HOME/.android
