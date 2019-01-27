@@ -61,3 +61,11 @@ env:
     - ANDROID_HOME=$HOME/android-sdk
     - DOWNLOAD_PATH=$HOME/.download
     - GRADLE_HOME=$HOME/gradle-4.1
+deploy:
+  provider: releases
+  api_key:
+    secure: okuzgkOwwYVoquPC9t++EvsPRUHSFk1flh5wq5MaoF1FaZf5sbdK6VQwj4hlcOKSeRogNekk0rO4sggXnPsuNxeeOTERlwXuYXnz8gvgoQ+aWpYWOCvhwbvI9kF3dWtIcZ2uMwoLndxqxeedwBEjMSreEZ4W623v/zozfexU8UpB4A3kmWPndbMCsQlfDrxc2pfIctIDQooqGhB/iOyASisUflPQ8EoPDm4MU7TzuQ8cTTJ2nKS37/J/zkwU5Qr0+LOstUe1Wo49BlDINJ1B/upGfXtVJaB2nT0qh7P1zC2Ea5SqICpXeYhi4dWEO003E8Hdn3fGjRlF4fDQaoWF7btKZ21M0m0SD/DLUneltfjaffSl86rkjBeILP2z8BOCcCSW1o31gHfmaC/udV1jLlUvX+gI98OQt7lEtIzp7WPuk8fZnK6NNw634WPVqbKCMbWyTUddUTvOD89g9uaZqyU4T5rGW0keJbDmW7Mg/0mtVeJ/YBN2e4Oe3Nc6uGSp1cqjqbW01Dvui6Acm94mz50h9pN9DfrHNaRfXcUW9KhEl6baqodrrYkwML32TT3+H8QrfrgtqCxSgvKWATp6fuBXJsXEML3ykfEhiCkmNVpwjKPEW9UM+zOSIfJD1xs/fdUriR30o6ROZZ9qpmzN8f3FI6aOTo4QWM2cmCbSzXo=
+  file: $HOME/build/app/outputs/apk/release/app-release.apk
+  skip_cleanup: true
+  on:
+    tags: true
