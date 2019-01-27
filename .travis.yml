@@ -70,7 +70,7 @@ deploy:
   overwrite: true
   api_key:
     secure: "PUT/0qrm2+lDQpnf5jtRlfKOKMwBIPA+Bq8+jjE2VonMye7Z4FMWwETg7XA6TwCnMA5vp8v27EtfwzcPSnVKRzJIMlxJbjJsW0JzfYK+rbrZxvVFBHRdDnAqvtfzg2h046rlFuIeBNcvI0qny8S81TtPfn6SpPQ/A0ILggOaJG87MfVFk2mGmJZbdzb5LLSawqpLFurboTECEbM2wIJ2+NWsOxSTQWbbfpTVpQ6NbW3WhOzZXp9YOB9lXT9HlACjLQyyZpFvzy0xPl9hjhfL8GYKzPq64btrSlcZLQxBxuXP9nSTMRoH/KwSHzKuIYS951EkLXutQoa9BfSigrTb1O/s8ENXrd5lG7h3gIWZxR9hJmcbTwF05u/SXU0+kTTmYkyQyuX1XMeyikPR558E7/OqUcFDIbBjusdfN7AQqyT+aXXFJIHkNzHz1BvVUuRxn04c2S/VoxXXGxDx1a3REQOBreTClp9oZuGQXBQ5qpxDyAP0rkhHVNTRW1ruB7XsCFNppfKcVDcXyVNN178xfm8bc7w4DJbDyxjT5meHwWAZW+CQOlEMMvH+4gcgmSr68C3iUKpDUprGCDKoRyns9w00ALl/3kqjh55GO3bbzqtqQBvDK3mD1TIfPKVP3KwVpmq8HioHL5e0PFU0GyZNqw3fZf8j3Nwn5XmH6YrQfc0="
-  file: $HOME/build/app/outputs/apk/release/app-release.apk
+  file: $HOME/build/app/outputs/apk/app.apk
   skip_cleanup: true
   on:
     tags: true
