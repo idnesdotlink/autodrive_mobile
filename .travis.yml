@@ -35,8 +35,8 @@ matrix:
       script:
         - gradle -v
         - echo -y | sdkmanager --licenses
-        - flutter doctor --android-licenses
         - echo -y | flutter doctor -v > /dev/null
+        - flutter update-packages
         - flutter precache
         - flutter build -v build apk
         # - ls $DOWNLOAD_PATH
