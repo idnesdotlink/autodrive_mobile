@@ -29,7 +29,7 @@ matrix:
         - if test ! -e $DOWNLOAD_PATH/sdk-tools.zip ; then wget $ANDROID_SDK_URL -P $DOWNLOAD_PATH && mv $DOWNLOAD_PATH/sdk-tools*.zip $DOWNLOAD_PATH/sdk-tools.zip ; fi
         - unzip -qq $DOWNLOAD_PATH/sdk-tools.zip -d $ANDROID_HOME
         - git clone -b dev $FLUTTER_GIT $FLUTTER_PATH
-        - export PATH="$PATH:$ANDROID_HOME/tools/bin:$HOME/flutter/bin"
+        - export PATH="$PATH:$GRADLE_HOME/bin:$ANDROID_HOME/tools/bin:$HOME/flutter/bin"
         - echo y | sdkmanager 'tools' > /dev/null
         - echo y | sdkmanager 'platform-tools' > /dev/null
         - echo y | sdkmanager 'build-tools;28.0.3' > /dev/null
@@ -57,4 +57,4 @@ env:
     - FLUTTER_PATH=$HOME/flutter
     - ANDROID_HOME=$HOME/android-sdk
     - DOWNLOAD_PATH=$HOME/.download
-    - GRADLE_HOME=$HOME/.sdkman/candidates/gradle/current/bin/gradle
+    - GRADLE_HOME=$HOME/.sdkman/candidates/gradle/4.10
