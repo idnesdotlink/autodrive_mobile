@@ -23,8 +23,8 @@ matrix:
         - source "$HOME/.sdkman/bin/sdkman-init.sh"
         - echo sdkman_auto_answer=true > ~/.sdkman/etc/config
         - source "/home/travis/.sdkman/bin/sdkman-init.sh"
-        - sdk install gradle 4.1
-        - sdk default gradle 4.1
+        - sdk install gradle 4.10
+        - sdk default gradle 4.10
         - mkdir -p $HOME/.download
         - if test ! -e $DOWNLOAD_PATH/sdk-tools.zip ; then wget $ANDROID_SDK_URL -P $DOWNLOAD_PATH && mv $DOWNLOAD_PATH/sdk-tools*.zip $DOWNLOAD_PATH/sdk-tools.zip ; fi
         - unzip -qq $DOWNLOAD_PATH/sdk-tools.zip -d $ANDROID_HOME
@@ -46,9 +46,9 @@ cache:
   directories:
     - $HOME/.download
     - $HOME/.pub-cache
-    # - $HOME/.sdkman
-    # - $HOME/.gradle/caches
-    # - $HOME/.gradle/wrapper
+    - $HOME/.sdkman
+    - $HOME/.gradle/caches
+    - $HOME/.gradle/wrapper
 env:
   global:
     - ANDROID_SDK_URL=https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
