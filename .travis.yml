@@ -21,9 +21,9 @@ matrix:
         - export LANG=en_US.UTF-8
         - mkdir -p $HOME/.download
         - if test ! -e $DOWNLOAD_PATH/sdk-tools.zip ; then wget $ANDROID_SDK_URL -P $DOWNLOAD_PATH && mv $DOWNLOAD_PATH/sdk-tools*.zip $DOWNLOAD_PATH/sdk-tools.zip ; fi
-        - if test ! -e $DOWNLOAD_PATH/gradle-4.10-all.zip ; then wget $GRADLE_URL -P $DOWNLOAD_PATH ; fi
+        - if test ! -e $DOWNLOAD_PATH/gradle-4.1-all.zip ; then wget $GRADLE_URL -P $DOWNLOAD_PATH ; fi
         - unzip -qq $DOWNLOAD_PATH/sdk-tools.zip -d $ANDROID_HOME
-        - unzip -qq $DOWNLOAD_PATH/gradle-4.10-all.zip -d $HOME
+        - unzip -qq $DOWNLOAD_PATH/gradle-4.1-all.zip -d $HOME
         - git clone -b dev $FLUTTER_GIT $FLUTTER_PATH --depth 1
         - export PATH="$GRADLE_HOME/bin:$ANDROID_HOME/tools/bin:$PATH:$GRADLE_HOME/bin:$ANDROID_HOME/tools/bin:$HOME/flutter/bin"
         - if test ! -e $HOME/.android/repositories.cfg ; then touch $HOME/.android/repositories.cfg ; fi
@@ -53,11 +53,11 @@ cache:
     - $HOME/.gradle/wrapper
 env:
   global:
-    - GRADLE_URL=https://services.gradle.org/distributions/gradle-4.10-all.zip
+    - GRADLE_URL=https://services.gradle.org/distributions/gradle-4.1-all.zip
     - ANDROID_SDK_URL=https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
     - FLUTTER_GIT=https://github.com/flutter/flutter.git
     - JAVA_HOME=/usr/lib/jvm/java-8-oracle
     - FLUTTER_PATH=$HOME/flutter
     - ANDROID_HOME=$HOME/android-sdk
     - DOWNLOAD_PATH=$HOME/.download
-    - GRADLE_HOME=$HOME/gradle-4.10
+    - GRADLE_HOME=$HOME/gradle-4.1

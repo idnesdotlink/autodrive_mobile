@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xfocus_mobile/routes/app.dart' as routes;
-import 'package:xfocus_mobile/config/app.dart' as config;
+import 'package:xfocus_mobile/configs/app.dart' as config;
 
 class App extends StatelessWidget {
   final String title = config.app['title'];
