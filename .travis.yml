@@ -61,6 +61,10 @@ env:
     - ANDROID_HOME=$HOME/android-sdk
     - DOWNLOAD_PATH=$HOME/.download
     - GRADLE_HOME=$HOME/gradle-4.1
+before_deploy:
+  - git config --local user.name idnesdotlink
+  - git config --local user.email 16096613+idnesdotlink@users.noreply.github.com
+  - export TRAVIS_TAG=${TRAVIS_TAG:$(git log --format=%h -1)}
 deploy:
   provider: releases
   overwrite: true
