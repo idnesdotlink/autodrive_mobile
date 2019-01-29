@@ -12,6 +12,8 @@ init:
   - cmd: CD
   - cmd: DIR
 
+  - cmd: SET APPVEYOR_ANDROID="C:\\Users\appveyor\\.android"
+
   #flutter
   - cmd: git clone -b dev https://github.com/flutter/flutter.git C:\\flutter --depth 1
   - cmd: SET FLUTTER_PATH="C:\\flutter"
@@ -40,16 +42,20 @@ init:
   # add all to path
   - cmd: SET PATH=%JAVA_HOME%\\bin;%GRADLE_HOME%\\bin;%ANDROID_HOME%\\tools\\bin;%FLUTTER_PATH%\\bin;%PATH%
 
-  - cmd: CD C:\\
-  - cmd: CD C:\\Users\appveyor\\.android
-  - cmd: DIR
-
   # - cmd: sdkmanager --list
   - cmd: ECHO y | sdkmanager tools > nul
   - cmd: ECHO y | sdkmanager platform-tools > nul
   - cmd: ECHO y | sdkmanager build-tools;28.0.3 > nul
   - cmd: ECHO y | sdkmanager platforms;android-27 > nul
   - cmd: ECHO y | sdkmanager extras;google;m2repository > nul
+
+  - cmd: CD %APPVEYOR_ANDROID%
+  - cmd: DIR
+
+  - cmd: CD %ANDROID_HOME%
+  - cmd: DIR
+
+  - cmd: where sdkmanager
 
   - cmd: sdkmanager --help
 
