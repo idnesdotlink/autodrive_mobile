@@ -45,7 +45,7 @@ init:
   - cmd: DIR
 
   # add all to path
-  - cmd: SET PATH=C:\\Program Files\\Java\\jdk1.8.0\\bin;C:\\gradle-4.1\\bin;C:\\Android\\tools;C:\\Android\\platform-tools;C:\\Android\\tools\\bin;C:\\flutter\\bin;%PATH%;C:\\Program Files\\Java\\jdk1.8.0\\bin;C:\\gradle-4.1\\bin;C:\\Android\\tools;C:\\Android\\platform-tools;C:\\Android\\tools\\bin;C:\\flutter\\bin
+  - cmd: SET PATH=C:\\gradle-4.1\\bin;C:\\Android\\tools;C:\\Android\\platform-tools;C:\\Android\\tools\\bin;C:\\flutter\\bin;%PATH%;C:\\gradle-4.1\\bin;C:\\Android\\tools;C:\\Android\\platform-tools;C:\\Android\\tools\\bin;C:\\flutter\\bin
 
   # - cmd: sdkmanager --help
   - yes | C:\\Android\tools\bin\sdkmanager.bat tools > nul
