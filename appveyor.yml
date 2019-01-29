@@ -44,7 +44,7 @@ init:
   # add all to path
   - cmd: SET PATH=%JAVA_HOME%\\bin;%GRADLE_HOME%\\bin;%ANDROID_SDK_TOOLS%\\tools\\bin;%FLUTTER_PATH%\\bin;%PATH%
 
-  - cmd: sdkmanager --help
+  # - cmd: sdkmanager --help
   - cmd: ECHO y | sdkmanager tools --sdk_root=%ANDROID_SDK_ROOT% > nul
   - cmd: ECHO y | sdkmanager platform-tools --sdk_root=%ANDROID_SDK_ROOT% > nul
   - cmd: ECHO y | sdkmanager build-tools;28.0.3 --sdk_root=%ANDROID_SDK_ROOT% > nul
