@@ -41,7 +41,7 @@ init:
   - cmd: SET PATH=%JAVA_HOME%\\bin;%GRADLE_HOME%\\bin;%ANDROID_HOME%\\tools\\bin;%FLUTTER_PATH%\\bin;%PATH%
 
   - cmd: CD C:\\
-  - cmd: CD C:\\Users
+  - cmd: CD C:\\Users\appveyor
   - cmd: DIR
 
   # - cmd: sdkmanager --list
