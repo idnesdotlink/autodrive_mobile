@@ -6,7 +6,7 @@ image:
 platform:
   - x64
 
-clone_folder: c:\projects
+clone_folder: c:\projects\autodrive
 clone_depth: 1
 
 init:
@@ -15,11 +15,13 @@ init:
   #flutter
   - cmd: git clone -b dev https://github.com/flutter/flutter.git C:\\flutter --depth 1
   - cmd: SET FLUTTER_PATH=C:\\flutter
+  - cmd: dir %FLUTTER_PATH%
 
   # gradle
   - appveyor DownloadFile https://services.gradle.org/distributions/gradle-4.1-all.zip
   - 7z x gradle-4.1-all.zip -oC:\
   - cmd: SET GRADLE_HOME=C:\\gradle-4.1
+  - cmd: dir %GRADLE_HOME%
 
   # android-sdk-windows
   - appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
@@ -28,12 +30,14 @@ init:
 
   # java
   - cmd: SET JAVA_HOME=C:\\Program Files\\Java\\jdk1.8.0
+  - cmd: dir %JAVA_HOME%
 
   # add all to path
   - cmd: SET PATH=%JAVA_HOME%\\bin;%GRADLE_HOME%\\bin;%ANDROID_HOME%\\tools\\bin;%FLUTTER_PATH%\\bin;%PATH%
 
   #project_path
   - cmd: SET PROJECT_PATH=C:\\projects
+  - cmd: dir %PROJECT_PATH%
 
   - y | sdkmanager --licenses
   - y | flutter doctor -v
@@ -41,10 +45,6 @@ init:
   - flutter precache
 
 build_script:
-  - cmd: dir %FLUTTER_PATH%
-  - cmd: dir %JAVA_HOME%
-  - cmd: dir %GRADLE_HOME%
-  - cmd: dir %PROJECT_PATH%
   - cmd: cd C:\\projects
   - cmd: dir
   - flutter -v build apk
