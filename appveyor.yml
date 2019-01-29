@@ -1,0 +1,54 @@
+version: 0.1.{build}
+
+image:
+  - Visual Studio 2017
+
+platform:
+  - x64
+
+clone_folder: c:\projects
+clone_depth: 1
+
+init:
+  - cmd: git config --global core.autocrlf input
+
+  #flutter
+  - cmd: git clone -b dev https://github.com/flutter/flutter.git C:\\flutter --depth 1
+  - cmd: SET FLUTTER_PATH=C:\\flutter
+
+  # gradle
+  - appveyor DownloadFile https://services.gradle.org/distributions/gradle-4.1-all.zip
+  - 7z x gradle-4.1-all.zip -oC:\
+  - cmd: SET GRADLE_HOME=C:\\gradle-4.1
+
+  # android-sdk-windows
+  - appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
+  - 7z x sdk-tools-windows-4333796.zip -oC:\android-sdk-windows
+  - cmd: SET ANDROID_HOME=C:\\android-sdk-windows
+
+  # java
+  - cmd: SET JAVA_HOME=C:\\Program Files\\Java\\jdk1.8.0
+
+  # add all to path
+  - cmd: SET PATH=%JAVA_HOME%\\bin;%GRADLE_HOME%\\bin;%FLUTTER_PATH%\\bin;%PATH%
+
+  #project_path
+  - cmd: SET PROJECT_PATH=C:\\projects
+
+  - y | sdkmanager --licenses
+  - y | flutter doctor -v
+  - flutter update-packages
+  - flutter precache
+
+build_script:
+  - cmd: dir %FLUTTER_PATH%
+  - cmd: dir %JAVA_HOME%
+  - cmd: dir %GRADLE_HOME%
+  - cmd: dir %PROJECT_PATH%
+  - cmd: cd C:\\projects
+  - cmd: dir
+  - flutter -v build apk
+
+test: "off"
+
+deploy: "off"
