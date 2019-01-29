@@ -40,8 +40,8 @@ init:
   - cmd: DIR
 
   # java
-  - cmd: SET JAVA_HOME="C:\\Program Files\\Java\\jdk1.8.0"
-  - cmd: CD %JAVA_HOME%
+  # - cmd: SET JAVA_HOME="C:\\Program Files\\Java\\jdk1.8.0"
+  - cmd: CD C:\\Program Files\\Java\\jdk1.8.0\\bin
   - cmd: DIR
 
   # add all to path
@@ -65,10 +65,10 @@ init:
 
   - cmd: CD %APPVEYOR_BUILD_FOLDER%
   - cmd: DIR
-  - yes | C:\\Android\tools\bin\sdkmanager.bat --licenses > nul
-  - cmd: ECHO y | flutter doctor -v
-  # - flutter update-packages
-  # - flutter precache
+  - y | C:\\Android\tools\bin\sdkmanager.bat --licenses > nul
+  - y | flutter doctor -v
+  - flutter update-packages
+  - flutter precache
 
 build_script:
   - cmd: ECHO "END"
