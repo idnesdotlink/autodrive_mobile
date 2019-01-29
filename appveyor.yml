@@ -14,7 +14,8 @@ init:
 
   - cmd: SET ANDROID_SDK_TOOLS="C:\\Android"
   - cmd: SET APPVEYOR_ANDROID="C:\\Users\appveyor\\.android"
-  - cmd: SET ANDROID_HOME=%APPVEYOR_ANDROID%
+  - cmd: SET ANDROID_SDK_ROOT=%ANDROID_SDK_TOOLS%
+  - cmd: SET ANDROID_HOME=%ANDROID_SDK_TOOLS%
 
   #flutter
   - cmd: git clone -b dev https://github.com/flutter/flutter.git C:\\flutter --depth 1
@@ -44,11 +45,11 @@ init:
   - cmd: SET PATH=%JAVA_HOME%\\bin;%GRADLE_HOME%\\bin;%ANDROID_SDK_TOOLS%\\tools\\bin;%FLUTTER_PATH%\\bin;%PATH%
 
   - cmd: sdkmanager --help
-  - cmd: ECHO y | sdkmanager tools > nul
-  - cmd: ECHO y | sdkmanager platform-tools > nul
-  - cmd: ECHO y | sdkmanager build-tools;28.0.3 > nul
-  - cmd: ECHO y | sdkmanager platforms;android-27 > nul
-  - cmd: ECHO y | sdkmanager extras;google;m2repository > nul
+  - cmd: ECHO y | sdkmanager tools --sdk_root=%ANDROID_SDK_ROOT% > nul
+  - cmd: ECHO y | sdkmanager platform-tools --sdk_root=%ANDROID_SDK_ROOT% > nul
+  - cmd: ECHO y | sdkmanager build-tools;28.0.3 --sdk_root=%ANDROID_SDK_ROOT% > nul
+  - cmd: ECHO y | sdkmanager platforms;android-27 --sdk_root=%ANDROID_SDK_ROOT% > nul
+  - cmd: ECHO y | sdkmanager extras;google;m2repository --sdk_root=%ANDROID_SDK_ROOT% > nul
 
   - cmd: CD %APPVEYOR_ANDROID%
   - cmd: DIR
