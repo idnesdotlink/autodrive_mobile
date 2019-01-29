@@ -12,6 +12,7 @@ init:
   - cmd: CD
   - cmd: DIR
 
+  - cmd: SET ANDROID_SDK_TOOLS="C:\\Android"
   - cmd: SET APPVEYOR_ANDROID="C:\\Users\appveyor\\.android"
   - cmd: SET ANDROID_HOME=%APPVEYOR_ANDROID%
 
@@ -31,8 +32,7 @@ init:
   # android-sdk-windows
   - appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
   - 7z x sdk-tools-windows-4333796.zip -oC:\Android
-  - cmd: SET ANDROID_SDK_HOME="C:\\Android"
-  - cmd: CD %ANDROID_SDK_HOME%
+  - cmd: CD %ANDROID_SDK_TOOLS%
   - cmd: DIR
 
   # java
@@ -41,9 +41,9 @@ init:
   - cmd: DIR
 
   # add all to path
-  - cmd: SET PATH=%JAVA_HOME%\\bin;%GRADLE_HOME%\\bin;%ANDROID_SDK_HOME%\\tools\\bin;%FLUTTER_PATH%\\bin;%PATH%
+  - cmd: SET PATH=%JAVA_HOME%\\bin;%GRADLE_HOME%\\bin;%ANDROID_SDK_TOOLS%\\tools\\bin;%FLUTTER_PATH%\\bin;%PATH%
 
-  # - cmd: sdkmanager --list
+  - cmd: sdkmanager --help
   - cmd: ECHO y | sdkmanager tools > nul
   - cmd: ECHO y | sdkmanager platform-tools > nul
   - cmd: ECHO y | sdkmanager build-tools;28.0.3 > nul
@@ -53,7 +53,7 @@ init:
   - cmd: CD %APPVEYOR_ANDROID%
   - cmd: DIR
 
-  - cmd: CD %ANDROID_SDK_HOME%
+  - cmd: CD %ANDROID_SDK_TOOLS%
   - cmd: DIR
 
   # - cmd: sdkmanager --help
