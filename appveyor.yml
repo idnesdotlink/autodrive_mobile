@@ -65,14 +65,13 @@ init:
 
   - cmd: CD %APPVEYOR_BUILD_FOLDER%
   - cmd: DIR
-  - y | C:\\Android\tools\bin\sdkmanager.bat --licenses > nul
-  - y | flutter doctor -v
+  - yes | C:\\Android\tools\bin\sdkmanager.bat --licenses > nul
+  - cmd: ECHO y | flutter doctor -v
   - flutter update-packages
   - flutter precache
 
 build_script:
-  - cmd: ECHO "END"
-  # - flutter -v build apk
+  - flutter -v build apk
 
 test: off
 
