@@ -49,6 +49,6 @@ build_script:
   - cmd: dir
   - flutter -v build apk
 
-test: "off"
+test: off
 
-deploy: "off"
+deploy: off
