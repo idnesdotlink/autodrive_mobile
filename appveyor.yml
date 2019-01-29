@@ -45,11 +45,11 @@ init:
   - cmd: SET PATH=%JAVA_HOME%\\bin;%GRADLE_HOME%\\bin;%ANDROID_SDK_TOOLS%\\tools;%ANDROID_SDK_TOOLS%\\platform-tools;%ANDROID_SDK_TOOLS%\\tools\\bin;%FLUTTER_PATH%\\bin;%PATH%%JAVA_HOME%\\bin;%GRADLE_HOME%\\bin;%ANDROID_SDK_TOOLS%\\tools;%ANDROID_SDK_TOOLS%\\platform-tools;%ANDROID_SDK_TOOLS%\\tools\\bin;%FLUTTER_PATH%\\bin
 
   # - cmd: sdkmanager --help
-  - cmd: ECHO y | C:\\Android\tools\bin\sdkmanager.bat tools --sdk_root=%ANDROID_SDK_ROOT%
-  - cmd: ECHO y | C:\\Android\tools\bin\sdkmanager.bat platform-tools --sdk_root=%ANDROID_SDK_ROOT%
-  - cmd: ECHO y | C:\\Android\tools\bin\sdkmanager.bat build-tools;28.0.3 --sdk_root=%ANDROID_SDK_ROOT%
-  - cmd: ECHO y | C:\\Android\tools\bin\sdkmanager.bat platforms;android-27 --sdk_root=%ANDROID_SDK_ROOT%
-  - cmd: ECHO y | C:\\Android\tools\bin\sdkmanager.bat extras;google;m2repository --sdk_root=%ANDROID_SDK_ROOT%
+  - yes | C:\\Android\tools\bin\sdkmanager.bat tools --sdk_root=%ANDROID_SDK_ROOT%
+  - yes | C:\\Android\tools\bin\sdkmanager.bat platform-tools --sdk_root=%ANDROID_SDK_ROOT%
+  - yes | C:\\Android\tools\bin\sdkmanager.bat build-tools;28.0.3 --sdk_root=%ANDROID_SDK_ROOT%
+  - yes | C:\\Android\tools\bin\sdkmanager.bat platforms;android-27 --sdk_root=%ANDROID_SDK_ROOT%
+  - yes | C:\\Android\tools\bin\sdkmanager.bat extras;google;m2repository --sdk_root=%ANDROID_SDK_ROOT%
 
   - cmd: CD %APPVEYOR_ANDROID%
   - cmd: DIR
