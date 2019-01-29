@@ -43,11 +43,12 @@ init:
   - cmd: CD C:\\
   - cmd: DIR
 
-  - cmd: ECHO y | sdkmanager 'tools' > nul
-  - cmd: ECHO y | sdkmanager 'platform-tools' > nul
-  - cmd: ECHO y | sdkmanager 'build-tools;28.0.3' > nul
-  - cmd: ECHO y | sdkmanager 'platforms;android-27' > nul
-  - cmd: ECHO y | sdkmanager 'extras;google;m2repository' > nul
+  - cmd: ECHO y | sdkmanager tools > nul
+  - cmd: ECHO y | sdkmanager platform-tools > nul
+  - cmd: sdkmanager --help
+  # - cmd: ECHO y | sdkmanager 'build-tools;28.0.3' > nul
+  # - cmd: ECHO y | sdkmanager 'platforms;android-27' > nul
+  # - cmd: ECHO y | sdkmanager 'extras;google;m2repository' > nul
 
   - cmd: CD %APPVEYOR_BUILD_FOLDER%
   - cmd: DIR
