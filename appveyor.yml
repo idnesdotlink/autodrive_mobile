@@ -50,6 +50,8 @@ init:
   - cmd: ECHO y | sdkmanager platforms;android-27 > nul
   - cmd: ECHO y | sdkmanager extras;google;m2repository > nul
 
+  - cmd: sdkmanager --help
+
   - cmd: CD %APPVEYOR_BUILD_FOLDER%
   - cmd: DIR
   - cmd: ECHO y | sdkmanager --licenses > nul
