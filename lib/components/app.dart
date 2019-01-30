@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:xfocus_mobile/routes/app.dart' as routes;
-import 'package:xfocus_mobile/configs/app.dart' as config;
+import 'package:autodrive/routes/app.dart' as routes;
+import 'package:autodrive/configs/app.dart' as config;
 
 class App extends StatelessWidget {
   final String title = config.app['title'];
@@ -22,7 +22,7 @@ class App extends StatelessWidget {
       initialRoute: '/',
       routes: routes.appRoutes,
       debugShowCheckedModeBanner:
-          false, // package:xfocus_mobile/config/app_routes.dart
+          false, // package:autodrive/config/app_routes.dart
     );
   }
 }

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:xfocus_mobile/components/primary_app_bar.dart';
+import 'package:autodrive/components/primary_app_bar.dart';
 
-class DashboardPage extends StatefulWidget {
+class DashboardScreen extends StatefulWidget {
   final String title;
 
-  DashboardPage({Key key, this.title = ''}) : super(key: key);
+  DashboardScreen({Key key, this.title = ''}) : super(key: key);
 
   @override
-  _DashboardPageState createState() => _DashboardPageState();
+  _DashboardScreenState createState() => _DashboardScreenState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _DashboardScreenState extends State<DashboardScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

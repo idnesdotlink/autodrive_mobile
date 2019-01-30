@@ -285,7 +285,7 @@ packages:
       name: flutter_calendar_carousel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.10"
+    version: "1.3.11"
   flutter_circular_chart:
     dependency: "direct main"
     description:
@@ -306,7 +306,7 @@ packages:
       name: flutter_easyrefresh
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.1"
+    version: "1.2.2"
   flutter_image:
     dependency: transitive
     description:
@@ -348,7 +348,7 @@ packages:
       name: flutter_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.7"
   flutter_range_slider:
     dependency: "direct main"
     description:
@@ -1025,12 +1025,19 @@ packages:
     source: hosted
     version: "1.0.3"
   validate:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: validate
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
+  validators:
+    dependency: "direct main"
+    description:
+      name: validators
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+1"
   vector_math:
     dependency: transitive
     description:

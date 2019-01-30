@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:xfocus_mobile/components/app.dart';
-import 'package:xfocus_mobile/services/camera.dart';
+import 'package:autodrive/components/app.dart';
+import 'package:autodrive/services/camera.dart';
 import 'package:camera/camera.dart';
 
 final application = App();

@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class _LoginBody extends StatelessWidget {
-  final String logo;
   final String assetName;
   final Widget svg = SvgPicture.asset('assets/svg/autodrive.svg');
   _LoginBody(
       {Key key,
       Widget svg,
-      this.logo = 'assets/png/logo-50.png',
       this.assetName = 'assets/svg/autodrive.svg'})
       : super(key: key);
   @override

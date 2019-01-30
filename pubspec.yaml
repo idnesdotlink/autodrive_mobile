@@ -1,18 +1,9 @@
-name: xfocus_mobile
-description: xfocus mobile.
+name: autodrive
+description: autodrive.
 
 dependencies:
   flutter:
     sdk: flutter
-  # card_settings: ^1.2.2
-  # chewie: ^0.8.0
-  # flutter_full_pdf_viewer: ^1.0.1
-  # flutter_redux: ^0.5.2
-  # onesignal: ^1.0.3
-  # pdf: ^1.0.8
-  # redux: ^3.0.0
-  # rx_widgets: ^2.2.0
-  # video_player: ^0.8.0
   after_layout: ^1.0.7
   archive: ^2.0.5
   async_loader: ^0.1.2
@@ -81,79 +72,21 @@ dependencies:
   sqflite: any
   sticky_headers: ^0.1.7
   url_launcher: ^4.0.3
+  validate: ^1.7.0
+  validators: ^1.0.0+1
   web_socket_channel: ^1.0.9
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  # IOS
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
-# For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
+  # material icon
   uses-material-design: true
 
   assets:
     # svg
     - assets/svg/autodrive.svg
-    # png
-    - assets/png/logo.png
-    - assets/png/logo-50.png
-    # json
-    - assets/json/cash.json
-    - assets/json/inventory.json
-    - assets/json/account_receivable.json
-    - assets/json/account_payable.json
-    - assets/json/sales.json
-    - assets/json/counter.json
-
-    # EXAMPLE ASSETS START
-    # dribble
-    - assets/example/dribble/login.jpg
-    - assets/example/dribble/home.jpeg
-    - assets/example/dribble/tick.png
-    - assets/example/dribble/avatars/avatar-1.jpg
-    - assets/example/dribble/avatars/avatar-2.jpg
-    - assets/example/dribble/avatars/avatar-3.jpg
-    - assets/example/dribble/avatars/avatar-4.jpg
-    - assets/example/dribble/avatars/avatar-5.jpg
-    - assets/example/dribble/avatars/avatar-6.jpg
-    - assets/example/dribble/avatars/default-avatar.jpg
-    # bookreader
-    - assets/example/bookreader/images/owl.png
-    - assets/example/bookreader/images/book1.gif
-    - assets/example/bookreader/images/book2.gif
-    - assets/example/bookreader/images/book3.gif
-    - assets/example/bookreader/images/book4.gif
-    # gorgeous_login
-    - assets/example/gorgeous_login/img/login_logo.png
-    # EXAMPLE ASSETS END
-  
-  fonts:
-
-    # EXAMPLE FONTS START
-    # georgeous_login
-    - family: WorkSansSemiBold
-      fonts:
-        - asset: assets/example/gorgeous_login/fonts/Work_Sans/WorkSans-SemiBold.ttf
-    - family: WorkSansBold
-      fonts:
-        - asset: assets/example/gorgeous_login/fonts/Work_Sans/WorkSans-Bold.ttf
-    - family: WorkSansMedium
-      fonts:
-        - asset: assets/example/gorgeous_login/fonts/Work_Sans/WorkSans-Medium.ttf
-    # bookreader
-    - family: Fontello
-      fonts:
-        - asset: assets/example/bookreader/fonts/fontello.ttf
-    # EXAMPLE FONTS END

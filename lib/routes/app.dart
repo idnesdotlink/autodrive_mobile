@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:xfocus_mobile/screens/login.dart';
-import 'package:xfocus_mobile/screens/dashboard.dart';
+import 'package:autodrive/screens/login.dart';
+import 'package:autodrive/screens/dashboard.dart';
 
 final Map<String, WidgetBuilder> appRoutes = {
   '/': (context) => LoginScreen(),
-  '/dashboard': (context) => DashboardPage(title: 'Dashboard')
+  '/dashboard': (context) => DashboardScreen(title: 'Dashboard')
 };
