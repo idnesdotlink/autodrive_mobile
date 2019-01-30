@@ -16,6 +16,7 @@ dependencies:
   date_range_picker: ^1.0.1
   device_info: ^0.3.0
   dio: ^1.0.13
+  equatable: ^0.1.0
   firebase_admob: 0.6.1
   firebase_analytics: ^1.0.6
   firebase_auth: ^0.6.6

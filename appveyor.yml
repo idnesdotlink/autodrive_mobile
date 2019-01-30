@@ -6,65 +6,46 @@ image:
 platform:
   - x64
 
-init:
-  - cmd: ECHO "START"
-  - cmd: git config --global core.autocrlf input
-  - cmd: CD
-  - cmd: DIR
+# gradle            = https://services.gradle.org/distributions/gradle-4.1-all.zip
+# android-sdk-tools = https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
 
+init:
+  # set environtment
   - cmd: SET ANDROID_DIR="C:\\Android"
   - cmd: SET APPVEYOR_ANDROID="C:\\Users\appveyor\\.android"
   - cmd: SET ANDROID_SDK_ROOT="C:\\Android"
-  # - cmd: SET ANDROID_HOME=%ANDROID_DIR%
   - cmd: SET ANDROID_TOOLS_DIR=C:\\Android\\tools
   - cmd: SET ANDROID_TOOLS_BIN=C:\\Android\\tools\\bin
   - cmd: SET ANDROID_PLATFORM_TOOLS_DIR=C:\\Android\\platform-tools
 
-  #flutter
+  # git config
+  - cmd: git config --global core.autocrlf input
+
+  # set flutter
   - cmd: git clone -b dev https://github.com/flutter/flutter.git C:\\flutter --depth 1
   - cmd: SET FLUTTER_PATH="C:\\flutter"
-  - cmd: CD %FLUTTER_PATH%
-  - cmd: DIR
 
-  # gradle
+  # set gradle
   - appveyor DownloadFile https://services.gradle.org/distributions/gradle-4.1-all.zip
   - 7z x gradle-4.1-all.zip -oC:\
   - cmd: SET GRADLE_HOME="C:\\gradle-4.1"
-  - cmd: CD %GRADLE_HOME%
-  - cmd: DIR
 
   # android-sdk-windows
   - appveyor DownloadFile https://dl.google.com/android/repository/sdk-tools-windows-4333796.zip
   - 7z x sdk-tools-windows-4333796.zip -oC:\Android
-  - cmd: CD %ANDROID_DIR%
-  - cmd: DIR
-
-  # java
-  # - cmd: SET JAVA_HOME="C:\\Program Files\\Java\\jdk1.8.0"
-  - cmd: CD C:\\Program Files\\Java\\jdk1.8.0\\bin
-  - cmd: DIR
 
   # add all to path
-  - cmd: SET PATH=C:\\gradle-4.1\\bin;C:\\Android\\tools;C:\\Android\\platform-tools;C:\\Android\\tools\\bin;C:\\flutter\\bin;%PATH%;C:\\gradle-4.1\\bin;C:\\Android\\tools;C:\\Android\\platform-tools;C:\\Android\\tools\\bin;C:\\flutter\\bin
+  - cmd: SET PATH=C:\\gradle-4.1\\bin;C:\\Android\\tools;C:\\Android\\platform-tools;C:\\Android\\tools\\bin;C:\\flutter\\bin;%PATH%
+  - cmd: SET PATH=%PATH%;C:\\gradle-4.1\\bin;C:\\Android\\tools;C:\\Android\\platform-tools;C:\\Android\\tools\\bin;C:\\flutter\\bin
 
-  # - cmd: sdkmanager --help
+  # TODO: find alternative appveyor syntax
   - yes | C:\\Android\tools\bin\sdkmanager.bat tools > nul
   - yes | C:\\Android\tools\bin\sdkmanager.bat platform-tools > nul
   - yes | C:\\Android\tools\bin\sdkmanager.bat build-tools;28.0.3 > nul
   - yes | C:\\Android\tools\bin\sdkmanager.bat platforms;android-27 > nul
   - yes | C:\\Android\tools\bin\sdkmanager.bat extras;google;m2repository > nul
 
-  - cmd: CD %ANDROID_TOOLS_DIR%
-  - cmd: DIR
-
-  - cmd: CD %ANDROID_TOOLS_BIN%
-  - cmd: DIR
-
-  - cmd: CD %ANDROID_PLATFORM_TOOLS_DIR%
-  - cmd: DIR
-
-  - cmd: CD %APPVEYOR_BUILD_FOLDER%
-  - cmd: DIR
+  # TODO: find alternative appveyor syntax
   - yes | C:\\Android\tools\bin\sdkmanager.bat --licenses > nul
   - cmd: ECHO y | flutter doctor -v
   - flutter update-packages

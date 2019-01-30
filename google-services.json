@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "528405465185",
-    "firebase_url": "https://tip-22-options.firebaseio.com",
-    "project_id": "tip-22-options",
-    "storage_bucket": "tip-22-options.appspot.com"
+    "project_number": "775501547870",
+    "firebase_url": "https://autodrive-8e1e2.firebaseio.com",
+    "project_id": "autodrive-8e1e2",
+    "storage_bucket": "autodrive-8e1e2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:528405465185:android:6ae943f800260660",
+        "mobilesdk_app_id": "1:775501547870:android:90211f5222dc8373",
         "android_client_info": {
-          "package_name": "com.example.xfocusmobile"
+          "package_name": "com.autodrive.mobile"
         }
       },
       "oauth_client": [
         {
-          "client_id": "528405465185-7ls15f5cesqbm6o7iu2aqpj63o44ok5m.apps.googleusercontent.com",
+          "client_id": "775501547870-bdfurab980k7311o4thvspspif9veti1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDUCXhRxcViYJjKcjcs_T1oTX_oX5-Vgt0"
+          "current_key": "AIzaSyAc1N-4CC13QXNdPHyBmpu3L6Qu3IuJGn8"
         }
       ],
       "services": {
