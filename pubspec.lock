@@ -605,7 +605,7 @@ packages:
       name: material_design_icons_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.3289"
+    version: "3.1.3493"
   material_search:
     dependency: "direct main"
     description:
@@ -710,7 +710,7 @@ packages:
       name: percent_indicator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.11"
+    version: "1.0.13"
   petitparser:
     dependency: transitive
     description:
@@ -724,7 +724,7 @@ packages:
       name: photo_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.2"
+    version: "0.2.0"
   platform:
     dependency: transitive
     description:
@@ -780,7 +780,7 @@ packages:
       name: qr_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.5"
+    version: "1.1.6"
   qr_reader:
     dependency: "direct main"
     description:
@@ -815,7 +815,7 @@ packages:
       name: rx_command
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.2.0"
   rxdart:
     dependency: "direct main"
     description:
@@ -878,7 +878,7 @@ packages:
       name: simple_auth_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
