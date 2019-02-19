@@ -19,8 +19,7 @@ dependencies:
   equatable: 0.1.10
   firebase_admob: 0.7.0 # NEED TO CHANGE ANDROID MANIFEST
   firebase_analytics: 1.2.0+1
-  # firebase_auth: 0.7.0
-  firebase_auth: 0.6.6
+  firebase_auth: 0.7.0
   firebase_dynamic_links: 0.1.0+1
   firebase_messaging: 2.1.0
   fluro: 1.4.0
