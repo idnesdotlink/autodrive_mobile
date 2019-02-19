@@ -49,47 +49,11 @@
                 <data android:scheme="com.googleusercontent.apps.992461286651-k3tsbcreniknqptanrugsetiimt0lkvo" />
             </intent-filter>
         </activity>
+        <!-- simpleauth.END -->
+        <!-- admon.START -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-1425442528456804~9718119250"/>
-        <!-- simpleauth.END -->
-        <!-- Application tag requirements below for OneSignal -->
-        <!-- 
-        <meta-data android:name="com.google.android.gms.version"
-           android:value="@integer/google_play_services_version" />
-        <receiver android:name="com.onesignal.GcmBroadcastReceiver"
-                   android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter android:priority="999" >
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.onesignal.example" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.onesignal.NotificationOpenedReceiver" />
-        <service android:name="com.onesignal.GcmIntentService" />
-        <service android:name="com.onesignal.GcmIntentJobService"
-                 android:permission="android.permission.BIND_JOB_SERVICE" />
-        <service android:name="com.onesignal.RestoreJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-        <service android:name="com.onesignal.RestoreKickoffJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-        <service android:name="com.onesignal.SyncService" android:stopWithTask="true" />
-        <service android:name="com.onesignal.SyncJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-        <activity android:name="com.onesignal.PermissionsActivity"
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <service android:name="com.onesignal.NotificationRestoreService" />
-        <receiver android:name="com.onesignal.BootUpReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.onesignal.UpgradeReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-            </intent-filter>
-        </receiver>
-        -->
+        <!-- admon.END -->
     </application>
 </manifest>
