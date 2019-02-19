@@ -17,7 +17,7 @@ dependencies:
   device_info: 0.3.0
   dio: 2.0.7
   equatable: 0.1.10
-  firebase_admob: 0.6.1
+  firebase_admob: 0.7.0 # NEED TO CHANGE ANDROID MANIFEST
   firebase_analytics: 1.2.0+1
   # firebase_auth: 0.7.0
   firebase_auth: 0.6.6
