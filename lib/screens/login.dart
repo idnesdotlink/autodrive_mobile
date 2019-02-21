@@ -37,7 +37,7 @@ class _LoginBody extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed('/dashboard');
+              Navigator.of(context).pushNamed('/phone');
             },
           ),
           RaisedButton(
@@ -51,6 +51,19 @@ class _LoginBody extends StatelessWidget {
             ),
             onPressed: () {
               Navigator.of(context).pushNamed('/admob');
+            },
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Text(
+              'Login',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/google');
             },
           ),
           RaisedButton(
