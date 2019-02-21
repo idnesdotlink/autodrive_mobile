@@ -17,8 +17,8 @@ class _LoginBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            width: 200.0,
-            height: 200.0,
+            width: 100.0,
+            height: 100.0,
             child: svg,
           ),
           Container(
@@ -38,6 +38,32 @@ class _LoginBody extends StatelessWidget {
             ),
             onPressed: () {
               Navigator.of(context).pushNamed('/dashboard');
+            },
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Text(
+              'Login',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/admob');
+            },
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Text(
+              'Login',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/firebase');
             },
           ),
         ],

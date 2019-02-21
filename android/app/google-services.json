@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "775501547870-8ujrpuqkhcd2ol5489gq7dbd8u7f6r5a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autodrive.mobile",
+            "certificate_hash": "eccf04f4b6340cf35c6c581a9cc3d728d017af17"
+          }
+        },
+        {
           "client_id": "775501547870-bdfurab980k7311o4thvspspif9veti1.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,13 +37,19 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "775501547870-bdfurab980k7311o4thvspspif9veti1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-1425442528456804~9718119250"
     }
   ],
   "configuration_version": "1"
