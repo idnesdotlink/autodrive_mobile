@@ -30,20 +30,7 @@ class _LoginBody extends StatelessWidget {
           RaisedButton(
             color: Colors.purple,
             child: Text(
-              'Login',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-              ),
-            ),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/dashboard');
-            },
-          ),
-          RaisedButton(
-            color: Colors.purple,
-            child: Text(
-              'Login',
+              'admob',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -56,7 +43,7 @@ class _LoginBody extends StatelessWidget {
           RaisedButton(
             color: Colors.purple,
             child: Text(
-              'Login',
+              'firebase',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -64,6 +51,32 @@ class _LoginBody extends StatelessWidget {
             ),
             onPressed: () {
               Navigator.of(context).pushNamed('/firebase');
+            },
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Text(
+              'google',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/google');
+            },
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Text(
+              'Phone',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/phone');
             },
           ),
         ],
