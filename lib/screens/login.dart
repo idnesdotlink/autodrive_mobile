@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:dio/dio.dart';
 class _LoginBody extends StatelessWidget {
   final String assetName;
   final Widget svg = SvgPicture.asset('assets/svg/autodrive.svg');
@@ -30,7 +30,7 @@ class _LoginBody extends StatelessWidget {
           RaisedButton(
             color: Colors.purple,
             child: Text(
-              'Login',
+              'phone',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -43,7 +43,7 @@ class _LoginBody extends StatelessWidget {
           RaisedButton(
             color: Colors.purple,
             child: Text(
-              'Login',
+              'admob',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -56,7 +56,7 @@ class _LoginBody extends StatelessWidget {
           RaisedButton(
             color: Colors.purple,
             child: Text(
-              'Login',
+              'google',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -69,7 +69,7 @@ class _LoginBody extends StatelessWidget {
           RaisedButton(
             color: Colors.purple,
             child: Text(
-              'Login',
+              'messaging',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -77,6 +77,37 @@ class _LoginBody extends StatelessWidget {
             ),
             onPressed: () {
               Navigator.of(context).pushNamed('/firebase');
+            },
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Text(
+              'messaging',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+              ),
+            ),
+            onPressed: () async {
+              Dio dio = new Dio();
+              try {
+              await dio.get("http://192.168.43.13:8000/test2");
+              } catch (e) {
+                print(e.toString());
+              }
+            },
+          ),
+          RaisedButton(
+            color: Colors.purple,
+            child: Text(
+              'Notif',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+              ),
+            ),
+            onPressed: () async {
+              Navigator.of(context).pushNamed('/local');
             },
           ),
         ],
